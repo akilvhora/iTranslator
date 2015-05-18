@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iTranslator", "iTranslator\iTranslator.csproj", "{4DB2BC5E-C19C-4CCD-B87A-F13D046A06BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslatorLib", "TranslatorLib\TranslatorLib.csproj", "{4CB9444A-E1BB-471A-ADDF-C3666E31CEC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslatorLibTest", "TranslatorLibTest\TranslatorLibTest.csproj", "{98734CCE-10C4-417D-9E91-EB28C23191CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DB2BC5E-C19C-4CCD-B87A-F13D046A06BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB2BC5E-C19C-4CCD-B87A-F13D046A06BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB2BC5E-C19C-4CCD-B87A-F13D046A06BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB2BC5E-C19C-4CCD-B87A-F13D046A06BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CB9444A-E1BB-471A-ADDF-C3666E31CEC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CB9444A-E1BB-471A-ADDF-C3666E31CEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CB9444A-E1BB-471A-ADDF-C3666E31CEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CB9444A-E1BB-471A-ADDF-C3666E31CEC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98734CCE-10C4-417D-9E91-EB28C23191CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98734CCE-10C4-417D-9E91-EB28C23191CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98734CCE-10C4-417D-9E91-EB28C23191CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98734CCE-10C4-417D-9E91-EB28C23191CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
