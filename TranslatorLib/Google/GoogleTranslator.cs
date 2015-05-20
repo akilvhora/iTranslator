@@ -12,7 +12,7 @@ namespace TranslatorLib.Google
     public class GoogleTranslator : ITranslate
     {
         private readonly string BaseUrl = ConfigurationManager.AppSettings["GoogleBaseUrl"];
-        private readonly string Key = ConfigurationManager.AppSettings["GoogleApiKey"]; 
+        private readonly string Key = ConfigurationManager.AppSettings["GoogleApiKey"];
 
         public List<string> Translate(string input, string fromLangauge, string toLangauge)
         {
@@ -26,6 +26,10 @@ namespace TranslatorLib.Google
         {
             var shortFromLangauge = Langauge.GetInstanse().GetLanguageShortName(fromLangauge);
             var shortToLangauge = Langauge.GetInstanse().GetLanguageShortName(toLangauge);
+
+            if (shortFromLangauge == null || shortToLangauge == null)
+                throw new Exception("Invalid Langauge Name");
+
             var requestUri = string.Format("{0}key={1}&source={2}&target={3}&q={4}", BaseUrl, Key, shortFromLangauge,
                 shortToLangauge, input);
 
