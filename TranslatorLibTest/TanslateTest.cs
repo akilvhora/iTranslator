@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TranslatorLib;
 using TranslatorLib.Google;
 using Xunit;
@@ -10,19 +9,19 @@ namespace TranslatorLibTest
 {
     public class TanslateTest
     {
-        private ITranslate translator;
+        private ITranslate _translator;
 
         public TanslateTest()
         {
-            translator = new GoogleTranslator();
+            _translator = new GoogleTranslator();
         }
 
         [Fact]
         public void EnglishToGujaratiTest()
         {
             const string input = "Aakar";
-            translator = new GoogleTranslator();
-            List<string> result = translator.Translate(input, "English", "Gujarati");
+            _translator = new GoogleTranslator();
+            List<string> result = _translator.Translate(input, "English", "Gujarati");
             Assert.Equal(result[0], "આકાર");
         }
 
@@ -30,7 +29,7 @@ namespace TranslatorLibTest
         public void UnknownLanguageTest()
         {
             const string input = "Aakar";
-            var ex = Assert.Throws<Exception>(() => translator.Translate(input, "English1", "Gujarati"));
+            var ex = Assert.Throws<Exception>(() => _translator.Translate(input, "English1", "Gujarati"));
             Assert.Equal("Invalid Langauge Name", ex.Message);
         }
 
@@ -38,15 +37,15 @@ namespace TranslatorLibTest
         public void GetAllSupportedLangaugesTest()
         {
             Langauge language = Langauge.GetInstanse();
-            LanguageMock mockLanguage = new LanguageMock();
+            DummyLanguage dummyLanguage = new DummyLanguage();
 
             Dictionary<string, string> langauages = language.GetLangauges();
-            Dictionary<string, string> mockLangauges = mockLanguage.Langauges;
+            Dictionary<string, string> dummyLangauges = dummyLanguage.Langauges;
 
             foreach (KeyValuePair<string, string> lang in langauages)
             {
-                Assert.True(mockLangauges.ContainsKey(lang.Key));
-                string langValue = mockLangauges[lang.Key];
+                Assert.True(dummyLangauges.ContainsKey(lang.Key));
+                string langValue = dummyLangauges[lang.Key];
                 Assert.Equal(langValue, lang.Value);
             }
         }
