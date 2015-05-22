@@ -65,7 +65,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Language.cs" />
+    <Compile Include="DummyLanguage.cs" />
     <Compile Include="TanslateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
