@@ -1,6 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using Moq;
 using TranslatorLib;
+using TranslatorLib.Google.Exceptions;
 using TranslatorLib.Google;
 using Xunit;
 using Assert = Xunit.Assert;
@@ -9,28 +11,45 @@ namespace TranslatorLibTest
 {
     public class TanslateTest
     {
-        private ITranslate _translator;
-
-        public TanslateTest()
-        {
-            _translator = new GoogleTranslator();
-        }
+        private const string dummyGoogleResponse = "{'data': {'translations': [{'translatedText': 'આકાર'}]}}";
 
         [Fact]
         public void EnglishToGujaratiTest()
         {
-            const string input = "Aakar";
-            _translator = new GoogleTranslator();
-            List<string> result = _translator.Translate(input, "English", "Gujarati");
+            const string Input = "Aakar";
+
+            var googleRequestMock = new Mock<IGoogleRequest>();
+            googleRequestMock.Setup(request => request.Execute(It.IsAny<string>())).Returns(dummyGoogleResponse);
+            ITranslate translator = new GoogleTranslator(googleRequestMock.Object);
+
+            List<string> result = translator.Translate(Input, "English", "Gujarati");
             Assert.Equal(result[0], "આકાર");
         }
 
         [Fact]
         public void UnknownLanguageTest()
         {
-            const string input = "Aakar";
-            var ex = Assert.Throws<Exception>(() => _translator.Translate(input, "English1", "Gujarati"));
+            const string Input = "Aakar";
+
+            var googleRequestMock = new Mock<IGoogleRequest>();
+            googleRequestMock.Setup(request => request.Execute(It.IsAny<string>())).Returns(string.Empty);
+            ITranslate translator = new GoogleTranslator(googleRequestMock.Object);
+
+            var ex = Assert.Throws<NoLanguageSupportException>(() => translator.Translate(Input, "English1", "Gujarati"));
             Assert.Equal("Invalid Langauge Name", ex.Message);
+        }
+
+        [Fact]
+        public void NoContentFoundLanguageTest()
+        {
+            const string Input = "Aakar";
+
+            var googleRequestMock = new Mock<IGoogleRequest>();
+            googleRequestMock.Setup(request => request.Execute(It.IsAny<string>())).Throws<NoContentFoundException>();
+            ITranslate translator = new GoogleTranslator(googleRequestMock.Object);
+
+            var ex = Assert.Throws<NoContentFoundException>(() => translator.Translate(Input, "English", "Gujarati"));
+            Assert.Equal("Exception of type 'TranslatorLib.Google.Exceptions.NoContentFoundException' was thrown.", ex.Message);
         }
 
         [Fact]

@@ -1,53 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using Newtonsoft.Json;
+﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
+
+using Newtonsoft.Json;
 
 namespace TranslatorLib.Google
 {
+    using TranslatorLib.Google.Domain;
+    using TranslatorLib.Google.Exceptions;
+
     public class GoogleTranslator : ITranslate
     {
         private readonly string _baseUrl = ConfigurationManager.AppSettings["GoogleBaseUrl"];
         private readonly string _key = ConfigurationManager.AppSettings["GoogleApiKey"];
 
+        private IGoogleRequest googleRequest;
+
+        public GoogleTranslator(IGoogleRequest googleRequest)
+        {
+            this.googleRequest = googleRequest;
+        }
+
         public List<string> Translate(string input, string fromLangauge, string toLangauge)
         {
-            var responseText = Execute(input, fromLangauge, toLangauge);
-            var data = JsonConvert.DeserializeObject<GoogleTranslation>(responseText);
+            var responseText = this.Execute(input, fromLangauge, toLangauge);
+            var data = JsonConvert.DeserializeObject<Response>(responseText);
 
             return data.Data.Translations.Select(translation => translation.TranslatedText).ToList();
         }
 
         private string Execute(string input, string fromLangauge, string toLangauge)
         {
-            var shortFromLangauge = Langauge.GetInstanse().GetLanguageShortName(fromLangauge);
-            var shortToLangauge = Langauge.GetInstanse().GetLanguageShortName(toLangauge);
+            var shortFromLangauge = this.GetShortLanguageName(fromLangauge);
+            var shortToLangauge = this.GetShortLanguageName(toLangauge);
 
             if (shortFromLangauge == null || shortToLangauge == null)
-                throw new Exception("Invalid Langauge Name");
-
-            var requestUri = string.Format("{0}key={1}&source={2}&target={3}&q={4}", _baseUrl, _key, shortFromLangauge,
-                shortToLangauge, input);
-
-            var request = WebRequest.Create(requestUri);
-            request.ContentType = "application/json; charset=utf-8";
-            var response = (HttpWebResponse)request.GetResponse();
-
-            if (response.GetResponseStream() == null)
-                throw new Exception("No Content Found");
-
-            string text;
-            // ReSharper disable AssignNullToNotNullAttribute
-            using (var sr = new StreamReader(stream: response.GetResponseStream()))
-            // ReSharper restore AssignNullToNotNullAttribute
             {
-                text = sr.ReadToEnd();
+                throw new NoLanguageSupportException("Invalid Langauge Name");
             }
 
-            return text;
+            var requestUri = this.GetUri(input, shortFromLangauge, shortToLangauge);
+
+            return this.googleRequest.Execute(requestUri);
+        }
+
+        private string GetShortLanguageName(string languageName)
+        {
+            return Langauge.GetInstanse().GetLanguageShortName(languageName);
+        }
+
+        private string GetUri(string input, string shortFromLangauge, string shortToLangauge)
+        {
+            return string.Format(
+                "{0}key={1}&source={2}&target={3}&q={4}",
+                this._baseUrl,
+                this._key,
+                shortFromLangauge,
+                shortToLangauge,
+                input);
         }
     }
 }

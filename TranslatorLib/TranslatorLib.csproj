@@ -45,11 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Google\Domain\Data.cs" />
+    <Compile Include="Google\Domain\Response.cs" />
+    <Compile Include="Google\Domain\Translation.cs" />
+    <Compile Include="Google\Exceptions\NoContentFoundException.cs" />
+    <Compile Include="Google\Exceptions\NoLanguageSupportException.cs" />
+    <Compile Include="Google\GoogleRequest.cs" />
     <Compile Include="Google\GoogleTranslator.cs" />
+    <Compile Include="Google\IGoogleRequest.cs" />
     <Compile Include="ITranslate.cs" />
     <Compile Include="Google\Langauge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Google\Data.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

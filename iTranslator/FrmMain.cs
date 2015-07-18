@@ -21,7 +21,8 @@ namespace iTranslator
 
             try
             {
-                ITranslate translator = new GoogleTranslator();
+                IGoogleRequest googleRequest = new GoogleRequest();
+                ITranslate translator = new GoogleTranslator(googleRequest);
                 var translatedTexts = translator.Translate(TxtFromLanguage.Text, ((ComboboxItem)CmdFromLangauge.SelectedItem).Text,
                     ((ComboboxItem)CmdToLangauge.SelectedItem).Text);
 
