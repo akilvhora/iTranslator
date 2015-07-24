@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using LightInject;
+using TranslatorLib;
 
 namespace iTranslator
 {
@@ -16,7 +16,14 @@ namespace iTranslator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+
+            ITranslate translator;
+            using (ServiceContainer container = new ServiceContainer())
+            {
+                translator = container.GetInstance<ITranslate>();
+            }
+
+            Application.Run(new FrmMain(translator));
         }
     }
 }

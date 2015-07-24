@@ -1,29 +1,37 @@
 ﻿using System;
 using System.Windows.Forms;
-using iTranslator.Properties;
-using TranslatorLib.Google;
+
 using TranslatorLib;
+using TranslatorLib.Google;
 
 namespace iTranslator
 {
     public partial class FrmMain : Form
     {
-        public FrmMain()
+        private ITranslate _translator;
+
+        public FrmMain(ITranslate transaltor)
         {
+            _translator = transaltor;
             InitializeComponent();
             Initialise();
         }
 
         private void BtnConvert_Click(object sender, EventArgs e)
         {
-            if(IsValid() == false)
+            if (IsValid() == false)
+            {
                 return;
+            }
 
             try
             {
-                IGoogleRequest googleRequest = new GoogleRequest();
-                ITranslate translator = new GoogleTranslator(googleRequest);
-                var translatedTexts = translator.Translate(TxtFromLanguage.Text, ((ComboboxItem)CmdFromLangauge.SelectedItem).Text,
+                //IGoogleRequest googleRequest = new GoogleRequest();
+                //ITranslate translator = new GoogleTranslator(googleRequest);
+
+                var translatedTexts = _translator.Translate(
+                    TxtFromLanguage.Text,
+                    ((ComboboxItem)CmdFromLangauge.SelectedItem).Text,
                     ((ComboboxItem)CmdToLangauge.SelectedItem).Text);
 
                 TxtToLangauge.Text = string.Empty;
@@ -57,13 +65,13 @@ namespace iTranslator
         {
             if (CmdFromLangauge.SelectedIndex < 0 || CmdToLangauge.SelectedIndex < 0)
             {
-                MessageBox.Show(Resources.NoSelectFromToLangauge);
+                MessageBox.Show(Properties.Resources.NoSelectFromToLangauge);
                 return false;
             }
 
             if (string.IsNullOrEmpty(TxtFromLanguage.Text))
             {
-                MessageBox.Show(Resources.NoEnterFromLangauge);
+                MessageBox.Show(Properties.Resources.NoEnterFromLangauge);
                 return false;
             }
 

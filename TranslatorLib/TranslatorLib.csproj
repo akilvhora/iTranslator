@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LightInject, Version=3.0.2.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LightInject.3.0.2.6\lib\net45\LightInject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -45,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyResolver.cs" />
     <Compile Include="Google\Domain\Data.cs" />
     <Compile Include="Google\Domain\Response.cs" />
     <Compile Include="Google\Domain\Translation.cs" />
@@ -53,6 +58,8 @@
     <Compile Include="Google\GoogleRequest.cs" />
     <Compile Include="Google\GoogleTranslator.cs" />
     <Compile Include="Google\IGoogleRequest.cs" />
+    <Compile Include="Google\IWebRequestFactory.cs" />
+    <Compile Include="Google\WebRequestFactory.cs" />
     <Compile Include="ITranslate.cs" />
     <Compile Include="Google\Langauge.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

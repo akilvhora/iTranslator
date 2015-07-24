@@ -3,12 +3,11 @@ using System.Configuration;
 using System.Linq;
 
 using Newtonsoft.Json;
+using TranslatorLib.Google.Domain;
+using TranslatorLib.Google.Exceptions;
 
 namespace TranslatorLib.Google
 {
-    using TranslatorLib.Google.Domain;
-    using TranslatorLib.Google.Exceptions;
-
     public class GoogleTranslator : ITranslate
     {
         private readonly string _baseUrl = ConfigurationManager.AppSettings["GoogleBaseUrl"];

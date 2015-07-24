@@ -1,14 +1,22 @@
 ﻿using System.IO;
 using System.Net;
+
 using TranslatorLib.Google.Exceptions;
 
 namespace TranslatorLib.Google
 {
     public class GoogleRequest : IGoogleRequest
     {
+        private IWebRequestFactory _webRequestFactory;
+
+        public GoogleRequest(IWebRequestFactory factory)
+        {
+            _webRequestFactory = factory;
+        }
+
         public string Execute(string requestUri)
         {
-            var request = WebRequest.Create(requestUri);
+            var request = _webRequestFactory.Create(requestUri);
             request.ContentType = "application/json; charset=utf-8";
             var response = (HttpWebResponse)request.GetResponse();
 
