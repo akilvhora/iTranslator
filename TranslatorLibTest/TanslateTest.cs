@@ -61,7 +61,7 @@ namespace TranslatorLibTest
             var webResponseMock = new Mock<HttpWebResponse>();
             webResponseMock.Setup(response => response.GetResponseStream()).Returns(responseStream);
 
-            var webRequestMock = new Mock<WebRequest>();
+            var webRequestMock = new Mock<HttpWebRequest>();
             webRequestMock.Setup(request => request.GetResponse()).Returns(webResponseMock.Object);
 
             var requestMock = new Mock<IWebRequestFactory>();
@@ -79,7 +79,7 @@ namespace TranslatorLibTest
             var webResponseMock = new Mock<HttpWebResponse>();
             webResponseMock.Setup(response => response.GetResponseStream()).Returns(() => null);
 
-            var webRequestMock = new Mock<WebRequest>();
+            var webRequestMock = new Mock<HttpWebRequest>();
             webRequestMock.Setup(request => request.GetResponse()).Returns(webResponseMock.Object);
 
             var requestMock = new Mock<IWebRequestFactory>();
@@ -89,6 +89,20 @@ namespace TranslatorLibTest
             var ex = Assert.Throws<NoContentFoundException>(() => googleRequest.Execute("http://www.google.com"));
 
             Assert.Equal("No Content Found", ex.Message);
+        }
+
+        [Fact]
+        public void WebRequestFactoryTest()
+        {
+            var webRequestMock = new Mock<WebRequest>();
+            var requestMock = new Mock<IWebRequestFactory>();
+            requestMock.Setup(factory => factory.Create(It.IsAny<string>())).Returns(webRequestMock.Object);
+
+            IWebRequestFactory webRequestFactory = new WebRequestFactory();
+            var actual = webRequestFactory.Create("http://www.google.com");
+
+            Assert.Equal("http://www.google.com/", actual.RequestUri.ToString());
+            Assert.IsType<HttpWebRequest>(actual);
         }
 
         [Fact]

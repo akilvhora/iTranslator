@@ -1,8 +1,11 @@
-﻿using LightInject;
+﻿using System.Diagnostics.CodeAnalysis;
+
+using LightInject;
 using TranslatorLib.Google;
 
 namespace TranslatorLib
 {
+    [ExcludeFromCodeCoverage]
     public class DependencyResolver : ICompositionRoot
     {
         private static readonly ServiceContainer Container = new ServiceContainer();
