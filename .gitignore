@@ -43,5 +43,6 @@ Temporary Items
 .apdisk
 
 # Directories for bin and obj
-bin/
-obj/
+bin
+obj
+packages
