@@ -1,10 +1,12 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
+using LightInject;
+using TranslatorLib;
+
 [assembly: AssemblyTitle("TranslatorLib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -21,6 +23,8 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("2a642ea8-7ad5-4a23-baab-c1b5771f7efe")]
+
+[assembly: CompositionRootType(typeof(DependencyResolver))]
 
 // Version information for an assembly consists of the following four values:
 //
