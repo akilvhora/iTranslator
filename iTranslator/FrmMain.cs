@@ -8,11 +8,11 @@ namespace iTranslator
 {
     public partial class FrmMain : Form
     {
-        private ITranslate _translator;
+        private readonly ITranslate _translator;
 
-        public FrmMain(ITranslate transaltor)
+        public FrmMain()
         {
-            _translator = transaltor;
+            _translator = RegisterDependency.Container.GetInstance<ITranslate>();
             InitializeComponent();
             Initialise();
         }

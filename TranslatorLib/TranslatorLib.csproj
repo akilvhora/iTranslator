@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DependencyResolver.cs" />
     <Compile Include="Google\Domain\Data.cs" />
     <Compile Include="Google\Domain\Response.cs" />
     <Compile Include="Google\Domain\Translation.cs" />
