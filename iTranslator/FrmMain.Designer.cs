@@ -37,6 +37,7 @@
             this.LblFromLanguage = new System.Windows.Forms.Label();
             this.LblToLangauge = new System.Windows.Forms.Label();
             this.CmdToLangauge = new System.Windows.Forms.ComboBox();
+            this.LblProcess = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // LblFromLanguageText
@@ -126,11 +127,20 @@
             this.CmdToLangauge.Size = new System.Drawing.Size(180, 22);
             this.CmdToLangauge.TabIndex = 8;
             // 
+            // LblProcess
+            // 
+            this.LblProcess.AutoSize = true;
+            this.LblProcess.Location = new System.Drawing.Point(108, 326);
+            this.LblProcess.Name = "LblProcess";
+            this.LblProcess.Size = new System.Drawing.Size(0, 13);
+            this.LblProcess.TabIndex = 9;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 382);
+            this.Controls.Add(this.LblProcess);
             this.Controls.Add(this.CmdToLangauge);
             this.Controls.Add(this.LblToLangauge);
             this.Controls.Add(this.LblFromLanguage);
@@ -158,6 +168,7 @@
         private System.Windows.Forms.Label LblFromLanguage;
         private System.Windows.Forms.Label LblToLangauge;
         private System.Windows.Forms.ComboBox CmdToLangauge;
+        private System.Windows.Forms.Label LblProcess;
     }
 }
 
