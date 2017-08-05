@@ -83,18 +83,12 @@ namespace TranslatorLib.Google
 
         public static Langauge GetInstanse()
         {
-            if (_langauge == null)
-                _langauge = new Langauge();
-
-            return _langauge;
+            return _langauge ?? (_langauge = new Langauge());
         }
 
         public string GetLanguageShortName(string langaugeName)
         {
-            if (Langauges.ContainsKey(langaugeName) == false)
-                return null;
-
-            return Langauges[langaugeName];
+            return Langauges.ContainsKey(langaugeName) == false ? null : Langauges[langaugeName];
         }
 
         public Dictionary<string, string> GetLangauges()

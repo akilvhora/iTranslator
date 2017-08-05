@@ -36,7 +36,7 @@ namespace TranslatorLibTest
             ITranslate translator = new GoogleTranslator(googleRequestMock.Object);
 
             var ex = Assert.Throws<NoLanguageSupportException>(() => translator.Translate(_input, "English1", "Gujarati"));
-            Assert.Equal("Invalid Langauge Name", ex.Message);
+            Assert.Equal("Invalid Language Name", ex.Message);
         }
 
         [Fact]

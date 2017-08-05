@@ -7,7 +7,7 @@ namespace TranslatorLib.Google
 {
     public class GoogleRequest : IGoogleRequest
     {
-        private IWebRequestFactory _webRequestFactory;
+        private readonly IWebRequestFactory _webRequestFactory;
 
         public GoogleRequest(IWebRequestFactory factory)
         {
@@ -24,11 +24,17 @@ namespace TranslatorLib.Google
             {
                 throw new NoContentFoundException("No Content Found");
             }
+            
+            var responseStream = response.GetResponseStream();
 
+            return ReadStream(responseStream);
+        }
+
+        private string ReadStream(Stream stream)
+        {
             string text;
-            // ReSharper disable AssignNullToNotNullAttribute
-            using (var sr = new StreamReader(stream: response.GetResponseStream()))
-            // ReSharper restore AssignNullToNotNullAttribute
+
+            using (var sr = new StreamReader(stream))
             {
                 text = sr.ReadToEnd();
             }
