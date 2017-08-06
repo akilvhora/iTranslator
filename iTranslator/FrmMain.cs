@@ -74,5 +74,21 @@ namespace iTranslator
 
             return true;
         }
+
+        private void BtnSetting_Click(object sender, EventArgs e)
+        {
+            FrmSetting settingForm = new FrmSetting();
+            settingForm.Owner = this;
+
+            settingForm.ShowDialog(this);
+        }
+
+        private void PbxSetting_Click(object sender, EventArgs e)
+        {
+            FrmSetting settingForm = new FrmSetting();
+            settingForm.Owner = this;
+
+            settingForm.ShowDialog(this);
+        }
     }
 }

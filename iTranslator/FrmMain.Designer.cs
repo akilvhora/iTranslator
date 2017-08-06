@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.LblFromLanguageText = new System.Windows.Forms.Label();
             this.LblToLanguageText = new System.Windows.Forms.Label();
             this.TxtFromLanguage = new System.Windows.Forms.TextBox();
@@ -38,52 +39,54 @@
             this.LblToLangauge = new System.Windows.Forms.Label();
             this.CmdToLangauge = new System.Windows.Forms.ComboBox();
             this.LblProcess = new System.Windows.Forms.Label();
+            this.PbxSetting = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PbxSetting)).BeginInit();
             this.SuspendLayout();
             // 
             // LblFromLanguageText
             // 
             this.LblFromLanguageText.AutoSize = true;
-            this.LblFromLanguageText.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFromLanguageText.Location = new System.Drawing.Point(32, 69);
+            this.LblFromLanguageText.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFromLanguageText.Location = new System.Drawing.Point(37, 69);
             this.LblFromLanguageText.Name = "LblFromLanguageText";
-            this.LblFromLanguageText.Size = new System.Drawing.Size(68, 14);
+            this.LblFromLanguageText.Size = new System.Drawing.Size(69, 13);
             this.LblFromLanguageText.TabIndex = 0;
-            this.LblFromLanguageText.Text = "From Text";
+            this.LblFromLanguageText.Text = "From Text:";
             // 
             // LblToLanguageText
             // 
             this.LblToLanguageText.AutoSize = true;
-            this.LblToLanguageText.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblToLanguageText.Location = new System.Drawing.Point(32, 207);
+            this.LblToLanguageText.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblToLanguageText.Location = new System.Drawing.Point(37, 236);
             this.LblToLanguageText.Name = "LblToLanguageText";
-            this.LblToLanguageText.Size = new System.Drawing.Size(51, 14);
+            this.LblToLanguageText.Size = new System.Drawing.Size(53, 13);
             this.LblToLanguageText.TabIndex = 1;
-            this.LblToLanguageText.Text = "To Text";
+            this.LblToLanguageText.Text = "To Text:";
             // 
             // TxtFromLanguage
             // 
             this.TxtFromLanguage.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFromLanguage.Location = new System.Drawing.Point(108, 66);
+            this.TxtFromLanguage.Location = new System.Drawing.Point(126, 66);
             this.TxtFromLanguage.Multiline = true;
             this.TxtFromLanguage.Name = "TxtFromLanguage";
-            this.TxtFromLanguage.Size = new System.Drawing.Size(642, 110);
+            this.TxtFromLanguage.Size = new System.Drawing.Size(748, 110);
             this.TxtFromLanguage.TabIndex = 2;
             // 
             // TxtToLangauge
             // 
             this.TxtToLangauge.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtToLangauge.Location = new System.Drawing.Point(108, 207);
+            this.TxtToLangauge.Location = new System.Drawing.Point(126, 236);
             this.TxtToLangauge.Multiline = true;
             this.TxtToLangauge.Name = "TxtToLangauge";
-            this.TxtToLangauge.Size = new System.Drawing.Size(642, 112);
+            this.TxtToLangauge.Size = new System.Drawing.Size(748, 112);
             this.TxtToLangauge.TabIndex = 3;
             // 
             // BtnConvert
             // 
-            this.BtnConvert.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConvert.Location = new System.Drawing.Point(108, 336);
+            this.BtnConvert.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConvert.Location = new System.Drawing.Point(126, 192);
             this.BtnConvert.Name = "BtnConvert";
-            this.BtnConvert.Size = new System.Drawing.Size(130, 28);
+            this.BtnConvert.Size = new System.Drawing.Size(108, 28);
             this.BtnConvert.TabIndex = 4;
             this.BtnConvert.Text = "Convert";
             this.BtnConvert.UseVisualStyleBackColor = true;
@@ -91,55 +94,67 @@
             // 
             // CmdFromLangauge
             // 
-            this.CmdFromLangauge.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdFromLangauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmdFromLangauge.FormattingEnabled = true;
-            this.CmdFromLangauge.Location = new System.Drawing.Point(154, 24);
+            this.CmdFromLangauge.Location = new System.Drawing.Point(180, 24);
             this.CmdFromLangauge.Name = "CmdFromLangauge";
-            this.CmdFromLangauge.Size = new System.Drawing.Size(186, 22);
+            this.CmdFromLangauge.Size = new System.Drawing.Size(216, 21);
             this.CmdFromLangauge.TabIndex = 5;
             // 
             // LblFromLanguage
             // 
             this.LblFromLanguage.AutoSize = true;
-            this.LblFromLanguage.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFromLanguage.Location = new System.Drawing.Point(105, 32);
+            this.LblFromLanguage.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFromLanguage.Location = new System.Drawing.Point(126, 27);
             this.LblFromLanguage.Name = "LblFromLanguage";
-            this.LblFromLanguage.Size = new System.Drawing.Size(43, 14);
+            this.LblFromLanguage.Size = new System.Drawing.Size(41, 13);
             this.LblFromLanguage.TabIndex = 6;
             this.LblFromLanguage.Text = "From:";
             // 
             // LblToLangauge
             // 
             this.LblToLangauge.AutoSize = true;
-            this.LblToLangauge.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblToLangauge.Location = new System.Drawing.Point(412, 32);
+            this.LblToLangauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblToLangauge.Location = new System.Drawing.Point(483, 27);
             this.LblToLangauge.Name = "LblToLangauge";
-            this.LblToLangauge.Size = new System.Drawing.Size(26, 14);
+            this.LblToLangauge.Size = new System.Drawing.Size(25, 13);
             this.LblToLangauge.TabIndex = 7;
             this.LblToLangauge.Text = "To:";
             // 
             // CmdToLangauge
             // 
-            this.CmdToLangauge.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmdToLangauge.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmdToLangauge.FormattingEnabled = true;
-            this.CmdToLangauge.Location = new System.Drawing.Point(441, 24);
+            this.CmdToLangauge.Location = new System.Drawing.Point(514, 24);
             this.CmdToLangauge.Name = "CmdToLangauge";
-            this.CmdToLangauge.Size = new System.Drawing.Size(180, 22);
+            this.CmdToLangauge.Size = new System.Drawing.Size(209, 21);
             this.CmdToLangauge.TabIndex = 8;
             // 
             // LblProcess
             // 
             this.LblProcess.AutoSize = true;
-            this.LblProcess.Location = new System.Drawing.Point(108, 326);
+            this.LblProcess.Location = new System.Drawing.Point(126, 355);
             this.LblProcess.Name = "LblProcess";
             this.LblProcess.Size = new System.Drawing.Size(0, 13);
             this.LblProcess.TabIndex = 9;
             // 
+            // PbxSetting
+            // 
+            this.PbxSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbxSetting.Image = ((System.Drawing.Image)(resources.GetObject("PbxSetting.Image")));
+            this.PbxSetting.Location = new System.Drawing.Point(850, 24);
+            this.PbxSetting.Name = "PbxSetting";
+            this.PbxSetting.Size = new System.Drawing.Size(24, 24);
+            this.PbxSetting.TabIndex = 11;
+            this.PbxSetting.TabStop = false;
+            this.PbxSetting.Click += new System.EventHandler(this.PbxSetting_Click);
+            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 382);
+            this.ClientSize = new System.Drawing.Size(917, 382);
+            this.Controls.Add(this.PbxSetting);
             this.Controls.Add(this.LblProcess);
             this.Controls.Add(this.CmdToLangauge);
             this.Controls.Add(this.LblToLangauge);
@@ -150,8 +165,12 @@
             this.Controls.Add(this.TxtFromLanguage);
             this.Controls.Add(this.LblToLanguageText);
             this.Controls.Add(this.LblFromLanguageText);
+            this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "iTranslator";
+            ((System.ComponentModel.ISupportInitialize)(this.PbxSetting)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,6 +188,7 @@
         private System.Windows.Forms.Label LblToLangauge;
         private System.Windows.Forms.ComboBox CmdToLangauge;
         private System.Windows.Forms.Label LblProcess;
+        private System.Windows.Forms.PictureBox PbxSetting;
     }
 }
 

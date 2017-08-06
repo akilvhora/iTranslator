@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 
 using Newtonsoft.Json;
@@ -10,8 +9,8 @@ namespace TranslatorLib.Google
 {
     public class GoogleTranslator : ITranslate
     {
-        private readonly string _baseUrl = ConfigurationManager.AppSettings["GoogleBaseUrl"];
-        private readonly string _key = ConfigurationManager.AppSettings["GoogleApiKey"];
+        private readonly string _baseUrl = Settings.Default.GoogleBaseUrl;
+        private readonly string _key = Settings.Default.GoogleApiKey;
 
         private readonly IGoogleRequest _googleRequest;
 

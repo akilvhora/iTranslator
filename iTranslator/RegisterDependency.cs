@@ -1,6 +1,7 @@
 ﻿using LightInject;
 using TranslatorLib;
 using TranslatorLib.Google;
+using TranslatorLib.Setting;
 
 namespace iTranslator
 {
@@ -13,6 +14,7 @@ namespace iTranslator
             Container.Register<IWebRequestFactory, WebRequestFactory>();
             Container.Register<IGoogleRequest, GoogleRequest>();
             Container.Register<ITranslate, GoogleTranslator>();
+            Container.Register<IConfiguration, Configuration>();
         }
     }
 }
